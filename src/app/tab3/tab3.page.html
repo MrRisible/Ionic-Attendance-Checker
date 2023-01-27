@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Presence </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense"> </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Student Attendance</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-select placeholder="Select Section" [(ngModel)]="selectedSection">
+        <ion-select-option value="Ruby">Ruby</ion-select-option>
+        <ion-select-option value="Jade">Jade</ion-select-option>
+        <ion-select-option value="Sapphire">Sapphire</ion-select-option>
+        <ion-select-option value="Emerald">Emerald</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select placeholder="Select subject" [(ngModel)]="selectedSubject">
+        <ion-select-option value="english">English</ion-select-option>
+        <ion-select-option value="mathematics">Mathematics</ion-select-option>
+        <ion-select-option value="science">Science</ion-select-option>
+        <ion-select-option value="araling_panlipunan"
+          >Araling Panlipunan</ion-select-option
+        >
+        <ion-select-option value="filipino">Filipino</ion-select-option>
+        <ion-select-option value="mapeh_tle">MAPEH/TLE</ion-select-option>
+        <ion-select-option value="values_education"
+          >Values Education</ion-select-option
+        >
+        <ion-select-option value="computer_education"
+          >Computer Education</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">RFID</ion-label>
+      <ion-input
+        placeholder="Enter RFID"
+        [autofocus]="true"
+        [(ngModel)]="inputValue"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button
+        type="submit"
+        (click)="SetAttendance(inputValue)"
+        [disabled]="!selectedSubject || !selectedSection ||  !inputValue"
+        >Add Attendance</ion-button
+      >
+    </ion-item>
+  </ion-card>
+
+  <ion-card-content *ngFor="let Value of Attendance; let i = index">
+    <ion-item><ion-label>Last Name: {{Value.LastName}}</ion-label></ion-item>
+    <ion-item><ion-label>First Name: {{Value.FirstName}}</ion-label></ion-item>
+    <ion-item><ion-label>Section: {{Value.Section}}</ion-label></ion-item>
+    <ion-item><ion-label>Date: {{Value.Date}}</ion-label></ion-item>
+    <ion-item><ion-label>Time: {{Value.Time}}</ion-label></ion-item>
+  </ion-card-content>
+</ion-content>

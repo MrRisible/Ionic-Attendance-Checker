@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Presence </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense"> </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Student List</ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-card-content *ngFor="let Value of Student; let i = index">
+        <ion-item
+          ><ion-label>Last Name: {{Value.LastName}}</ion-label></ion-item
+        >
+        <ion-item
+          ><ion-label>First Name: {{Value.FirstName}}</ion-label></ion-item
+        >
+        <ion-item><ion-label>Section: {{Value.Section}}</ion-label></ion-item>
+        <ion-item><ion-label>RFID: {{Value.RFID}}</ion-label></ion-item>
+        <div class="center">
+          <ion-button
+            shape="round"
+            color="secondary"
+            size="small"
+            (click)="editStudent(i)"
+            >Edit</ion-button
+          >
+          <ion-button
+            shape="round"
+            color="danger"
+            size="small "
+            (click)="deleteStudent(i)"
+            >Delete</ion-button
+          >
+        </div>
+      </ion-card-content>
+    </ion-grid>
+  </ion-card>
+</ion-content>

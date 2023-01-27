@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Presence </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense"> </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Student Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating" size="md">Enter RFID</ion-label>
+        <ion-input
+          placeholder="RFID"
+          type="text"
+          [(ngModel)]="StudentList.RFID"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" size="md">Enter First Name</ion-label>
+        <ion-input
+          placeholder="First Name"
+          type="text"
+          [(ngModel)]="StudentList.FirstName"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" size="md">Enter Last Name</ion-label>
+        <ion-input
+          placeholder="Last Name"
+          type="text"
+          [(ngModel)]="StudentList.LastName"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select
+          [(ngModel)]="StudentList.Section"
+          placeholder="Select Section"
+          required
+        >
+          <ion-select-option value="Ruby">Ruby</ion-select-option>
+          <ion-select-option value="Jade">Jade</ion-select-option>
+          <ion-select-option value="Sapphire">Sapphire</ion-select-option>
+          <ion-select-option value="Emerald">Emerald</ion-select-option>
+          <ion-select-option value="Topaz">Topaz</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+    <div class="center">
+      <ion-button
+        color="success"
+        type="Submit"
+        (click)="addStudent()"
+        [disabled]="!StudentList.RFID || !StudentList.FirstName || !StudentList.LastName || !StudentList.Section"
+        >Add Student</ion-button
+      >
+    </div>
+  </ion-card>
+</ion-content>
